@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "name": "Harry Potter Saga Completa",
+        "price": 129.99,
+        "image": "media/saga-completa.jpg",
+        "cantidad": 1
+    },
+    {
+        "id": 2,
+        "name": "Harry Potter y la Piedra Filosofal",
+        "price": 20,
+        "image": "media/HarryPotterylapiedrafilosofal.jpeg",
+        "cantidad": 1
+    },
+    {
+        "id": 3,
+        "name": "Harry Potter y la Cámara Secreta",
+        "price": 20,
+        "image": "media/HarryPotterylacamarasecreta.jpeg",
+        "cantidad": 1
+    },
+    {
+        "id": 4,
+        "name": "Harry Potter y el prisionero de Azcaban",
+        "price": 20,
+        "image": "media/harrypotteryelprisionero.jpeg",
+        "cantidad": 1
+    },
+    {
+        "id": 5,
+        "name": "Harry Potter y el Cáliz de Fuego",
+        "price": 20,
+        "image": "media/harrypotteryelcalizdefuego.jpeg",
+        "cantidad": 1
+    },
+    {
+        "id": 6,
+        "name": "Harry Potter y la Orden del Fénix",
+        "price": 20,
+        "image": "media/HarryPotteryOrdendelFenix.jpeg",
+        "cantidad": 1
+    },
+    {
+        "id": 7,
+        "name": "Harry Potter y el misterio del Príncipe",
+        "price": 20,
+        "image": "media/HarryPottermisteriodelprincipe.jpeg",
+        "cantidad": 1
+    },
+    {
+        "id": 8,
+        "name": "Harry Potter y las Reliquias de la muerte",
+        "price": 20,
+        "image":"media/HarryPotterylasreliquias.jpeg",
+        "cantidad": 1
+    }
+]
