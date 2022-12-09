@@ -27,7 +27,7 @@ const showContainerItems = products => {
                     <div class="card-body">
                         <h5 class="card-title">${product.name}</h5>
                         <p class="card-text"><span class="price">$${product.price}</span></p>
-                        <button type="button" class="btn btn-primary buy-btn" id="${product.id}" onClick="addToArray(${product.id})">Agregar al carrito</button>
+                        <button type="button" class="btn btn-primary buy-btn" id="${product.id}" onclick="addToArray(${product.id})">Agregar al carrito</button>
                     </div>
                 </div>
                 
@@ -38,20 +38,24 @@ const showContainerItems = products => {
 }
 
 async function showItems() {
-    const articulosFetch = await fetch("articulos.json")    
+    const articulosFetch = await fetch("articulos.json")
     const articulosJson = await articulosFetch.json()
     showContainerItems(articulosJson)
 }
 
+
+
 const addToArray = (id) => {
     /* Agrega el producto al carrito */
-    if(IDS.indexOf(id) !== -1){
+
+    
+    if (IDS.indexOf(id) !== -1) {
         Swal.fire({
             icon: 'error',
             title: 'Oops... El producto está en el carrito',
             text: 'Puedes agregar más desde ahí!'
-          })
-    }else{
+        })
+    } else {
         items.forEach(product => {
             if (product.id === parseInt(id) && carrito.indexOf(product) === -1 && IDS.indexOf(product.id) === -1) {
                 carrito.push(product)
@@ -60,18 +64,19 @@ const addToArray = (id) => {
                 updateTotal()
                 Swal.fire({
                     icon: 'success',
-                    title: 'Agregado con éxito.'                    
-                  })
+                    title: 'Agregado con éxito.'
+                })
 
             }
         })
     }
 }
 
+
 const updateCar = () => {
     $carritoContainer.innerHTML = ""
     carrito.forEach(product => {
-        
+
         $carritoContainer.innerHTML += `
         <div class="cardInCar">
             <div class="container-img">
@@ -81,10 +86,9 @@ const updateCar = () => {
                 <span class="nameInCar">${product.name}</span>
                 <span class="priceInCar">$${product.price}</span>
             </div>
-                <i id="${product.id}" onClick="deleteItemCar(${product.id})" class="fa-solid fa-trash delete-btn"></i>
-            </div>
-            <input id="${product.id}" onChange="updateTotal(event)" type="number" min="1" max="5" value="${product.cantidad}" class="cart-quantity">
-        `
+            <input id="${product.id}" onchange="updateTotal(event)" type="number" min="1" max="5" value="${product.cantidad}" class="cart-quantity">
+                <i id="${product.id}" onclick="deleteItemCar(${product.id})" class="fa-solid fa-trash delete-btn"></i>
+            </div>`
     })
 }
 
@@ -134,40 +138,40 @@ function getcarrito() {
 }
 
 $comprar.onclick = () => {
-    if (carrito.length > 0){
+    if (carrito.length > 0) {
         Swal.fire({
             icon: 'success',
-            title: 'Pedido realizado con éxito.'                    
-          })
+            title: 'Pedido realizado con éxito.'
+        })
         totalCompra = 0
         carrito = []
         IDS = []
         updateCar()
         updateTotal()
-    }else{
+    } else {
         Swal.fire({
             icon: 'error',
-            title: 'Todavía no tienes productos en el carrito.'                    
+            title: 'Todavía no tienes productos en el carrito.'
         })
     }
 }
 
 $vaciar.onclick = () => {
     /* Vacía el carrito */
-    if (carrito.length > 0){
+    if (carrito.length > 0) {
         Swal.fire({
             icon: 'success',
-            title: 'Carrito vacío.'                    
-          })
+            title: 'Carrito vacío.'
+        })
         totalCompra = 0
         carrito = []
         IDS = []
         updateCar()
         updateTotal()
-    }else{
+    } else {
         Swal.fire({
             icon: 'error',
-            title: 'El carrito se encuentra vacio.'                    
+            title: 'El carrito se encuentra vacio.'
         })
     }
 }
